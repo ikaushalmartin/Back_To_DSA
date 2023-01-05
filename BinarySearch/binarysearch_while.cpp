@@ -26,7 +26,7 @@ return -1;
 int main(){
     int even[6]={2,4,6,8,12,18};
     int odd[5]={3,8,11,14,16};
-    int key=1;
+    int key=3;
     int index=binarysearch(odd,5, key);
     cout<<endl<<"Index - > "<<index;
 }
