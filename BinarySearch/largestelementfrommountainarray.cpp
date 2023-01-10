@@ -15,8 +15,9 @@ int max(int arr[],int n){
     }
    return start;
 }
+
 int main(){
-    int even[6]={2,4,6,8,12,18};
+     int even[6]={1,8,8,8,3,2};
     int odd[5]={1,2,3,5,4};
     int key=1;
     int index=max(odd,5);
