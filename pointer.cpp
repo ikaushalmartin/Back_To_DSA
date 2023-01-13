@@ -22,9 +22,9 @@ int main(){
 p2=p2-1000;
 cout<<*p2<<endl; //address incremented by 4 bytes
 
-int arr[10];
+int arr[3]={1,2,3};
 
-cout<<"array add -> "<<&arr<<endl;
+cout<<"array add -> "<<&arr[1]<<endl;
 
 
 }
