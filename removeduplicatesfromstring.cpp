@@ -1,4 +1,5 @@
 #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 
@@ -22,8 +23,9 @@ removeduplicates(a,index+1,ans);
 }
 
 int main(){
-    string a="bcabc";
+    string a="cbacdcbc";
     string ans="";
     removeduplicates(a,0,ans);
+     sort(ans.begin(),ans.end());
 cout<<ans;
 }
