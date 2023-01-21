@@ -14,7 +14,7 @@ class node{
     }
 
     ~node(){
-        int val=this->data;
+       int val=this->data;
         if(next!=NULL){
                 delete next;
                 next=NULL;
@@ -22,6 +22,7 @@ class node{
         }
 
         cout<<"destructor"<<endl;
+        return;
     }
 };
 
@@ -33,26 +34,25 @@ void delete_element(node* &head, int place){
             temp->next->prev=NULL;
             head=temp->next;
             temp->next=NULL;
-            
-
             delete temp;
     }
     
-    while(count!=place-1){
+    else{
+         while(count!=place-1){
         temp=temp->next;
         count++;
     }
     
-    
+   
+
+    node* deletemem2=temp->next; 
+    deletemem2->prev=NULL;
     temp->next=temp->next->next;
-    temp->next->next->prev=temp;
-   temp->next->next=NULL;
-    temp->next->prev=NULL;
-
-    delete temp->next->next;
-
-
-
+    deletemem2->next=NULL;
+     delete deletemem2;
+    }
+    
+   
 
 }
 
@@ -86,7 +86,7 @@ int main(){
     node4->next=node5;
     node5->prev=node4;
 
-    delete_element(node1,3);
+    delete_element(node1,1);
     print(node1);
 
 }

@@ -89,6 +89,6 @@ int main(){
     print(node1);
     cout<<endl;
 
-    insert_element_in_middle(node1, 500,6);
+    insert_element_in_middle(node1, 500,1);
     print(node1);
 }
