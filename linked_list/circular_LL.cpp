@@ -95,7 +95,7 @@ int main(){
     //insert_element(tail,10,300);
     //print(tail);
 
-    delete_node(tail,10);
-    print(tail);
+   // delete_node(tail,10);
+    //print(tail);
 
 }

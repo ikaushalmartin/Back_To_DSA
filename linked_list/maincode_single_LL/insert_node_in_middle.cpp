@@ -12,7 +12,28 @@ class node{
         }
 
 };
+bool check_circularity(node* &head){
 
+    
+
+    if(head==NULL){
+        return true;
+    }
+node* temp=head->next;
+  
+    while(temp!=NULL && temp!=head){
+       
+        temp=temp->next;
+        
+    }
+    if(temp==head){
+        return true;
+    } 
+        return false;
+     
+
+
+}
 
 void insert_in_middle(node* &head,int data, int place){
     node* middle_node=new node(data);
@@ -51,9 +72,11 @@ int main(){
     node2->next=node3;
     node3->next=node4;
 
-    print_linked_list(node1);
+   print_linked_list(node1);
 
-    insert_in_middle(node1,30,2);
-     print_linked_list(node1);
+     insert_in_middle(node1,30,2);
+      print_linked_list(node1);
+
+     cout<<check_circularity(node1)<<endl;
 
 }
