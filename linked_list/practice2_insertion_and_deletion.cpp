@@ -12,8 +12,19 @@ class node{
     }
 };
 
+
+
+void insert_element_at_head(node* &head,int data){
+    node* newhead=new node(data);
+    newhead->next=head;
+    head=newhead;
+}
 void insert_element_at_tail(node* &tail, int data){
+
     node* newtail=new node(data);
+    if(tail==NULL){
+        insert_element_at_head(tail,data);
+    }
     tail->next=newtail;
     tail=newtail;
     
@@ -22,11 +33,6 @@ void insert_element_at_tail(node* &tail, int data){
     
 }
 
-void insert_element_at_head(node* &head,int data){
-    node* newhead=new node(data);
-    newhead->next=head;
-    head=newhead;
-}
 
 void add_element_in_middle(node* &head, int data, int place){
 
@@ -67,15 +73,15 @@ cout<<endl;
 
 int main(){
 
-node* node1=new node(10);
+node* node1=NULL;
 node* tail=node1;
-insert_element_at_tail(tail,20);
-insert_element_at_tail(tail,30);
-insert_element_at_tail(tail,40);
+ insert_element_at_tail(tail,20);
+ insert_element_at_tail(tail,30);
+ insert_element_at_tail(tail,40);
  
 
 print(node1);
-add_element_in_middle(node1,2000,5);
+add_element_in_middle(node1,2000,1);
 
 print(node1);
  

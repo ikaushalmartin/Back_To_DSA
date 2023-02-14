@@ -32,7 +32,8 @@ if(node_to_delete==1){
     delete deletemem;
     return;
 }
-while(counter!=(node_to_delete-1)){
+else{
+    while(counter!=(node_to_delete-1)){
     temp=temp->next;
     counter++;
 }
@@ -40,6 +41,7 @@ node* deletemem2=temp->next;
 temp->next=temp->next->next;
  deletemem2->next=NULL;
 delete deletemem2;
+}
 }
 
 
@@ -66,7 +68,7 @@ int main(){
     node4->next=node5;
 
     print_linked_list(node1);
-    delete_node(node1,3);
-    delete_node(node1,4);
+    delete_node(node1,1);
+    //delete_node(node1,4);
      print_linked_list(node1);
 }
