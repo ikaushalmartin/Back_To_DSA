@@ -63,10 +63,46 @@ while(!q.empty()){
 
 }
 
+void preorder_traversal(node* root){
+
+    if(root==NULL){
+        return;
+    }
+
+    cout<<root->data<<" ";
+    preorder_traversal(root->left);
+    preorder_traversal(root->right);
+}
+
+void inorder_traversal(node* root){
+    if(root==NULL){
+        return;
+    }
+
+    inorder_traversal(root->left);
+    cout<<root->data<<" ";
+    inorder_traversal(root->right);
+
+}
+
+void postorder_traversal(node* root){
+    if(root==NULL){
+        return;
+    }
+
+    postorder_traversal(root->left);
+    postorder_traversal(root->right);
+    cout<<root->data<<" ";
+}
+
 int main(){
     node* root=NULL;
     root=build_tree(root);
 
     levelorder_traversal(root);
+
+    preorder_traversal(root);
+    inorder_traversal(root);
+    postorder_traversal(root);
 
 }
