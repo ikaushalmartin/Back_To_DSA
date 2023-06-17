@@ -64,9 +64,58 @@ while(!q.empty()){
 
 }
 
+int height_of_tree(node* root){
+    if(root==NULL){
+        return 0;
+    }
+
+    int left=height_of_tree(root->left);
+    int right=height_of_tree(root->right);
+
+    return max(left,right)+1;
+}
+
+int diameter(node* root){
+    if(root==NULL){
+        return 0;
+    }
+
+    int left=diameter(root->left);
+    int right=diameter(root->right);
+    int both=height_of_tree(root->left)+height_of_tree(root->right);
+
+    return max(left, max(right,both))+1;
+}
+
+pair<int,int> fastdiameter(node* root){
+
+    if(root==NULL){
+        pair<int, int> p=make_pair(0,0);
+        return p;
+    }
+
+    pair<int,int>left=fastdiameter(root->left);
+    pair<int,int>right=fastdiameter(root->right);
+
+    int op1=left.first;
+    int op2=right.first;
+
+    int op3=left.second+right.second;
+
+    pair<int,int> ans;
+    ans.first= max(op1, max(op2,op3))+1;
+    ans.second= max(op1,op2)+1;
+
+    return ans;
+}
+
+
 int  main(){
     node* root=NULL;
     root=buildtree(root);
-
     levelorder_traversal(root);
+    cout<<"height ------> "<<height_of_tree(root)<<endl;
+    cout<<"Diameter -----> "<<diameter(root);
+
+    cout<<"Fast Diameter -----> "<<fastdiameter(root).first;
 }
